@@ -1,0 +1,330 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Internet in Pakistan — Digital Evolution</title>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;900&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+  <style>
+    :root{
+      /* Light-first palette */
+      --bg: #ffffff;
+      --bg-soft: #f6faf8;
+      --text: #0f1720;
+      --muted: #5c6b63;
+      --border: #e5efe9;
+
+      --primary: #10b981;           /* emerald-500 */
+      --primary-600: #059669;        /* emerald-600 */
+      --primary-700: #047857;        /* emerald-700 */
+      --accent: #22d3ee;             /* cyan-400 */
+
+      --shadow-1: 0 1px 2px rgba(16,24,32,.06), 0 8px 24px rgba(16,24,32,.06);
+      --shadow-2: 0 2px 6px rgba(16,24,32,.08), 0 16px 40px rgba(16,24,32,.10);
+      --radius-sm: 12px; --radius-md: 16px; --radius-lg: 24px; --radius-xl: 28px;
+      --container: 1200px;
+      --step-0: clamp(.9rem, .85rem + .2vw, 1rem);
+      --step-1: clamp(1.1rem, 1rem + .6vw, 1.25rem);
+      --step-2: clamp(1.35rem, 1.1rem + 1.2vw, 1.75rem);
+      --step-3: clamp(1.8rem, 1.4rem + 2vw, 2.25rem);
+      --step-4: clamp(2.2rem, 1.8rem + 3vw, 3.2rem);
+      --step-5: clamp(2.8rem, 2.2rem + 4vw, 4.2rem);
+    }
+    *{box-sizing:border-box}html{scroll-behavior:smooth}body{margin:0;font-family:'Inter', system-ui, -apple-system, Segoe UI, Roboto, sans-serif;background:var(--bg);color:var(--text);line-height:1.6;-webkit-font-smoothing:antialiased;-moz-osx-font-smoothing:grayscale}
+
+    .container{max-width:var(--container);margin-inline:auto;padding-inline:24px}
+    .btn{display:inline-flex;gap:.6rem;align-items:center;padding:.9rem 1.25rem;border-radius:999px;border:1px solid transparent;background:linear-gradient(180deg,var(--primary),var(--primary-600));color:#fff;font-weight:800;box-shadow:var(--shadow-1);text-decoration:none;transition:transform .25s ease, box-shadow .25s ease, filter .25s ease}
+    .btn:hover{transform:translateY(-2px);box-shadow:var(--shadow-2);filter:saturate(1.05)}
+    .ghost{background:#fff;color:var(--primary-700);border-color:#bfead9}
+    .ghost:hover{background:#ecfdf5}
+
+    .kicker{letter-spacing:.12em;text-transform:uppercase;font-weight:800;color:var(--primary-700);font-size:.8rem}
+    .chip{display:inline-flex;align-items:center;gap:.5rem;background:#ecfdf5;border:1px solid #d1fae5;color:#065f46;padding:.35rem .7rem;border-radius:999px;font-weight:700;font-size:.8rem}
+
+    /* ====== HERO ====== */
+    header{position:relative;isolation:isolate;overflow:hidden}
+    .hero{padding: min(12vh,80px) 0 72px}
+
+    /* Pakistani flag as a subtle background */
+    .flag-bg{position:absolute;inset:0;z-index:-1;opacity:.16;}
+    .flag-bg::before{content:"";position:absolute;inset:0;background:url('https://upload.wikimedia.org/wikipedia/commons/3/32/Flag_of_Pakistan.svg') center/cover no-repeat}
+
+    .hero-grid{display:grid;grid-template-columns:1fr;gap:40px;align-items:center}
+    .hero h1{font-size:var(--step-5);line-height:1.05;font-weight:900;letter-spacing:-.02em;margin:0}
+    .hero p{margin:1rem 0 1.2rem;font-size:var(--step-1);color:#334a41}
+    .hero-cta{display:flex;gap:14px;align-items:center;flex-wrap:wrap;margin-top:1.2rem}
+
+    .hero-stats{display:flex;gap:20px;flex-wrap:wrap;margin-top:28px}
+    .hero-stat{flex:1 1 180px;background:var(--bg-soft);border:1px solid var(--border);border-radius:var(--radius-lg);padding:18px 20px;box-shadow:var(--shadow-1)}
+    .hero-stat .num{font-family:'JetBrains Mono', monospace;color:var(--primary-700);font-weight:900;font-size:1.75rem}
+    .hero-stat .label{color:#3c4e47;font-size:.85rem}
+
+    /* ====== Sections ====== */
+    .section{padding:72px 0}
+    .section-header{text-align:center;margin-bottom:36px}
+    .section h2{font-size:var(--step-3);margin:.25rem 0}
+    .section p.lead{max-width:760px;margin:8px auto 0;color:#3c4e47;font-size:var(--step-1)}
+
+    /* ====== Cards ====== */
+    .cards{display:grid;grid-template-columns:repeat(4,1fr);gap:22px}
+    .card{position:relative;background:#ffffff00;border:1px solid var(--border);border-radius:var(--radius-xl);padding:22px 22px 18px;min-height:220px;box-shadow:var(--shadow-1);transition:transform .35s cubic-bezier(.2,.8,.2,1), box-shadow .35s}
+    .card:hover{transform:translateY(-6px);box-shadow:var(--shadow-2)}
+    .card .icon{font-size:1.8rem}
+    .card h3{margin:10px 0 6px;font-size:1.25rem;color:var(--primary-700)}
+    .card p{color:#40574d;font-size:var(--step-0)}
+    .card .link{display:inline-flex;gap:8px;align-items:center;margin-top:14px;font-weight:800;color:var(--primary-700);text-decoration:none}
+    .card .link svg{transition:transform .25s}
+    .card:hover .link svg{transform:translateX(4px)}
+    .card {
+  position: relative;
+  overflow: hidden;
+}
+
+.card::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background-image: var(--card-bg);
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  transform: scale(1.02);
+  z-index: 0;
+}
+
+.card::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  /* Darker overlay for better readability */
+  background: linear-gradient(
+    180deg,
+    rgba(0, 0, 0, 0.50),
+    rgba(0, 0, 0, 0.65)
+  );
+  z-index: 1;
+}
+
+.card > * {
+  position: relative;
+  z-index: 2;
+}
+
+.card h3,
+.card p,
+.card .link {
+  color: #fff;
+}
+
+    
+
+    /* ====== Timeline ====== */
+    .timeline-wrap{margin-top:10px;border-radius:var(--radius-xl);border:1px solid var(--border);background:var(--bg-soft);box-shadow:var(--shadow-1);overflow:hidden}
+    .timeline-head{display:flex;align-items:center;justify-content:space-between;padding:16px 18px;border-bottom:1px solid var(--border)}
+    .timeline{position:relative;height:116px;overflow:hidden;mask:linear-gradient(90deg,transparent 0%, #000 6%, #000 94%, transparent 100%)}
+    .track{display:flex;align-items:center;gap:16px;height:100%;will-change:transform;animation:scroll 24s linear infinite}
+    @keyframes scroll{from{transform:translateX(0)} to{transform:translateX(-50%)} }
+
+    .t-item{flex:0 0 auto;min-width:220px;height:84px;border-radius:16px;background:#fff;border:1px solid var(--border);box-shadow:var(--shadow-1);display:flex;flex-direction:column;justify-content:center;align-items:center;text-align:center;padding:10px 12px;cursor:pointer;transition:transform .25s, box-shadow .25s}
+    .t-item:hover{transform:translateY(-4px);box-shadow:var(--shadow-2)}
+    .t-year{font-family:'JetBrains Mono', monospace;color:var(--primary-700);font-weight:900}
+    .t-event{font-weight:700;color:#24453a;font-size:.95rem}
+
+    /* ====== Stats ====== */
+    .stats{display:grid;grid-template-columns:repeat(4,1fr);gap:18px}
+    .stat{background:#fff;border:1px solid var(--border);border-radius:20px;padding:24px;box-shadow:var(--shadow-1);text-align:center}
+    .stat .num{font-size:2rem;font-weight:900;color:var(--primary-700);font-family:'JetBrains Mono', monospace}
+    .stat .lab{color:#3c4e47;text-transform:uppercase;letter-spacing:.12em;font-weight:800;font-size:.8rem}
+
+    /* ====== Quote & Personas ====== */
+    blockquote{margin:0;padding:28px;border-radius:20px;background:linear-gradient(180deg,#ffffff,#f6fbf9);border:1px solid var(--border);box-shadow:var(--shadow-1);font-size:var(--step-2);color:#28463b;font-style:italic}
+    cite{display:block;margin-top:10px;color:var(--primary-700);font-weight:900}
+
+    .personas{display:grid;grid-template-columns:repeat(3,1fr);gap:18px}
+    .persona{background:#fff;border:1px solid var(--border);border-radius:20px;padding:22px;text-align:center;box-shadow:var(--shadow-1)}
+    .persona .ico{font-size:1.6rem}
+    .persona h4{margin:8px 0;color:var(--primary-700)}
+    .persona p{color:#3a5147}
+
+    /* ====== Footer ====== */
+    footer{margin-top:64px;border-top:1px solid var(--border);background:var(--bg-soft)}
+    .foot{padding:28px 0;text-align:center;color:#3c4e47}
+
+    /* ====== Responsive ====== */
+    @media (max-width: 1024px){.cards{grid-template-columns:repeat(2,1fr)}}
+    @media (max-width: 640px){.cards{grid-template-columns:1fr}.stats{grid-template-columns:repeat(2,1fr)}.personas{grid-template-columns:1fr}.hero{padding:56px 0}}
+  </style>
+</head>
+<body>
+  <header>
+    <div class="flag-bg" aria-hidden="true"></div>
+    <div class="container hero">
+      <div class="hero-grid">
+        <div>
+          <span class="chip">Pakistan · 1995 → 2025</span>
+          <h1>Internet in Pakistan</h1>
+          <p>Tracing the journey from dial‑up cafés to nationwide fiber and mobile broadband — and the people, policies, and platforms that reshaped daily life.</p>
+          <div class="hero-cta">
+            <a href="#explore" class="btn" aria-label="Explore the journey">Explore the Journey
+              <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14"/><path d="m12 5 7 7-7 7"/></svg>
+            </a>
+            <a href="#timeline" class="btn ghost" aria-label="Jump to timeline">Key Milestones
+              <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M8 17l4 4 4-4"/><path d="M12 12v9"/></svg>
+            </a>
+          </div>
+          <div class="hero-stats" role="list" aria-label="Quick stats">
+            <div class="hero-stat" role="listitem"><div class="num">130M+</div><div class="label">Internet Users</div></div>
+            <div class="hero-stat" role="listitem"><div class="num">#4</div><div class="label">Global Freelancing Rank</div></div>
+            <div class="hero-stat" role="listitem"><div class="num">85%</div><div class="label">Mobile Internet Share</div></div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </header>
+
+  <main id="explore" class="container">
+    <section class="section" aria-labelledby="explore-title">
+      <div class="section-header">
+        <span class="kicker">Start Here</span>
+        <h2 id="explore-title">Explore Pakistan's Digital Evolution</h2>
+        <p class="lead">Discover how connectivity transformed the economy, culture and daily life — through four focused lenses.</p>
+      </div>
+
+<div class="cards" role="list">
+  <article class="card" role="listitem" style="--card-bg:url('https://i.dawn.com/primary/2018/11/5be8f992ea8ca.jpg')">
+    <h3>Introduction</h3>
+    <p>Journey from pioneering ISPs and university networks to the first email gateways that connected Pakistan to the world.</p>
+    <a class="link" href="intro.html">Explore Origins
+      <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M7 17L17 7"/><path d="M7 7h10v10"/></svg>
+    </a>
+  </article>
+
+  <article class="card" role="listitem" style="--card-bg:url('https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQttwTXLYgU1AeUjA198PJgz8WmHfcEXbxsrw&s')">
+    <h3>Evolution</h3>
+    <p>Witness the leap from dial-up to DSL, 3G/4G rollouts and early 5G trials — mapped on an interactive timeline.</p>
+    <a class="link" href="evolution.html">View Timeline
+      <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M7 17L17 7"/><path d="M7 7h10v10"/></svg>
+    </a>
+  </article>
+
+  <article class="card" role="listitem" style="--card-bg:url('https://www.telecomreviewasia.com/wp-content/uploads/2024/07/Vietnams_E-Commerce_Revolution.jpg')">
+    <h3>Impact</h3>
+    <p>See how connectivity reshaped commerce, education, politics and culture — from e-commerce to digital rights.</p>
+    <a class="link" href="impact.html">Discover Impact
+      <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M7 17L17 7"/><path d="M7 7h10v10"/></svg>
+    </a>
+  </article>
+
+  <article class="card" role="listitem" style="--card-bg:url('https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSoW1Yf8D4pgBCm_SxvHdiIO5Shdmy62sm5qQ&s')">
+    <h3>Future</h3>
+    <p>Look ahead to the next decade: broader fiber, 5G use-cases, AI adoption and youth-led innovation.</p>
+    <a class="link" href="future.html">See Future
+      <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M7 17L17 7"/><path d="M7 7h10v10"/></svg>
+    </a>
+  </article>
+
+</div>
+
+    </section>
+
+    <section class="section" id="timeline" aria-labelledby="km-title">
+      <div class="section-header">
+        <span class="kicker">Milestones</span>
+        <h2 id="km-title">Key Milestones</h2>
+        <p class="lead">Major events that shaped Pakistan's digital landscape.</p>
+      </div>
+
+      <div class="timeline-wrap" role="region" aria-label="Scrolling timeline">
+        <div class="timeline-head">
+          <div><strong>1995 → 2025</strong> <span class="kicker" style="margin-left:10px;color:#256e5a">Hover to pause · Drag to explore</span></div>
+        </div>
+        <div class="timeline" id="timelineScroller">
+          <div class="track" id="track">
+            <div class="t-item"><div class="t-year">1995</div><div class="t-event">Public Internet Launch</div></div>
+            <div class="t-item"><div class="t-year">2006</div><div class="t-event">DSL Broadband</div></div>
+            <div class="t-item"><div class="t-year">2014</div><div class="t-event">3G/4G Spectrum Auction</div></div>
+            <div class="t-item"><div class="t-year">2020</div><div class="t-event">Platform Regulations</div></div>
+            <div class="t-item"><div class="t-year">2023</div><div class="t-event">Early 5G Trials</div></div>
+            <div class="t-item"><div class="t-year">2024</div><div class="t-event">Digital Pakistan Push</div></div>
+            <!-- duplicate for seamless loop -->
+            <div class="t-item"><div class="t-year">1995</div><div class="t-event">Public Internet Launch</div></div>
+            <div class="t-item"><div class="t-year">2006</div><div class="t-event">DSL Broadband</div></div>
+            <div class="t-item"><div class="t-year">2014</div><div class="t-event">3G/4G Spectrum Auction</div></div>
+            <div class="t-item"><div class="t-year">2020</div><div class="t-event">Platform Regulations</div></div>
+            <div class="t-item"><div class="t-year">2023</div><div class="t-event">Early 5G Trials</div></div>
+            <div class="t-item"><div class="t-year">2024</div><div class="t-event">Digital Pakistan Push</div></div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="section" aria-labelledby="stats-title">
+      <div class="section-header">
+        <span class="kicker">By the Numbers</span>
+        <h2 id="stats-title">Pakistan's Digital Footprint</h2>
+        <p class="lead">A snapshot of adoption and access.</p>
+      </div>
+      <div class="stats" role="list">
+        <div class="stat" role="listitem"><div class="num">130M+</div><div class="lab">Internet Users</div></div>
+        <div class="stat" role="listitem"><div class="num">#4</div><div class="lab">Global Freelancing Rank</div></div>
+        <div class="stat" role="listitem"><div class="num">40%</div><div class="lab">Urban Fiber Coverage</div></div>
+        <div class="stat" role="listitem"><div class="num">85%</div><div class="lab">Mobile Internet Users</div></div>
+      </div>
+    </section>
+
+    <section class="section" aria-labelledby="quote-title">
+      <div class="section-header">
+        <span class="kicker">Perspective</span>
+        <h2 id="quote-title">A Changing Generation</h2>
+      </div>
+      <blockquote>
+        “The internet has become the new oxygen for Pakistan's youth, breathing life into dreams and possibilities.”
+        <cite>— Digital Rights Foundation</cite>
+      </blockquote>
+    </section>
+
+    <section class="section" aria-labelledby="who-title">
+      <div class="section-header">
+        <span class="kicker">Who This Serves</span>
+        <h2 id="who-title">Tailored Insights</h2>
+        <p class="lead">For students, builders and policymakers navigating Pakistan's digital transformation.</p>
+      </div>
+      <div class="personas" role="list">
+        <div class="persona" role="listitem"><div class="ico">🎓</div><h4>Students & Researchers</h4><p>Historical data, primary sources and context for academic work.</p></div>
+        <div class="persona" role="listitem"><div class="ico">💻</div><h4>Developers & Professionals</h4><p>Infrastructure, platforms and market trends for product decisions.</p></div>
+        <div class="persona" role="listitem"><div class="ico">🏛️</div><h4>Policy Makers</h4><p>Access, governance and regulation — with user impact in focus.</p></div>
+      </div>
+    </section>
+  </main>
+
+  <footer>
+    <div class="container foot">Created by <strong>Aamir Mustafa</strong> · CM1040 Web Development · Goldsmiths, University of London</div>
+  </footer>
+
+  <script>
+    // Smooth in-page navigation
+    document.querySelectorAll('a[href^="#"]').forEach(a=>{
+      a.addEventListener('click', e=>{
+        const id=a.getAttribute('href');
+        const target=document.querySelector(id);
+        if(target){e.preventDefault();target.scrollIntoView({behavior:'smooth',block:'start'});} });});
+
+    // Timeline hover pause & drag
+    const track = document.getElementById('track');
+    const timeline = document.getElementById('timelineScroller');
+    let paused=false; const set=()=>track.style.animationPlayState = paused? 'paused':'running';
+    ['mouseenter','focusin'].forEach(evt=>timeline.addEventListener(evt,()=>{paused=true;set()}));
+    ['mouseleave','focusout'].forEach(evt=>timeline.addEventListener(evt,()=>{paused=false;set()}));
+
+    // Drag to scrub
+    let isDown=false, startX=0, startTx=0; const mX=el=> new DOMMatrix(getComputedStyle(el).transform).m41||0;
+    timeline.addEventListener('pointerdown',e=>{isDown=true;timeline.setPointerCapture(e.pointerId);paused=true;set();startX=e.clientX;startTx=mX(track)});
+    timeline.addEventListener('pointermove',e=>{if(!isDown) return; const dx=e.clientX-startX; track.style.transform=`translateX(${startTx+dx}px)`;});
+    timeline.addEventListener('pointerup',()=>{isDown=false; paused=false; set(); track.style.removeProperty('transform');});
+
+    // Reveal on scroll
+    const io=new IntersectionObserver((es)=>{es.forEach(e=>{if(e.isIntersecting){e.target.animate([{opacity:0,transform:'translateY(10px)'},{opacity:1,transform:'translateY(0)'}],{duration:600,easing:'cubic-bezier(.2,.8,.2,1)',fill:'forwards'}); io.unobserve(e.target);}})},{threshold:.12});
+    document.querySelectorAll('.card,.stat,.persona').forEach(el=>io.observe(el));
+  </script>
+</body>
+</html>

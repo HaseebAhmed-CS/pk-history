@@ -1,0 +1,91 @@
+{
+  "hero": {
+    "kicker": "Impact",
+    "title": "How the Internet Changed Life in Pakistan",
+    "subhead": "From livelihoods to learning, the web reshaped work, culture and civic life."
+  },
+  "metrics": {
+    "title": "Digital footprint at a glance",
+    "lead": "Adoption and usage continue to scale nationwide.",
+    "items": [
+      { "value": "130M+", "label": "Internet Users" },
+      { "value": "#4",   "label": "Global Freelancing Rank" },
+      { "value": "85%",  "label": "Mobile Internet Share" },
+      { "value": "40%",  "label": "Urban Fiber Coverage" }
+    ]
+  },
+  "pillars": {
+  "title": "Four domains of impact",
+  "lead": "Economy, education, culture and governance saw the largest shifts.",
+  "items": [
+    {
+      "title": "Economy & Work",
+      "description": "E-commerce, gig income and export services created new paths into the global market.",
+      "image": "https://images.unsplash.com/photo-1522202176988-66273c2fd55f?q=80&w=1200&auto=format&fit=crop"
+    },
+    {
+      "title": "Education & Skills",
+      "description": "LMS platforms, MOOCs and blended models broadened access to learning.",
+      "image": "https://images.unsplash.com/photo-1509062522246-3755977927d7?q=80&w=1200&auto=format&fit=crop"
+    },
+    {
+      "title": "Culture & Community",
+      "description": "Social platforms amplified local voices, music and film; diaspora links deepened.",
+      "image": "https://images.unsplash.com/photo-1512428559087-560fa5ceab42?q=80&w=1200&auto=format&fit=crop"
+    },
+    {
+      "title": "Civic Life & Services",
+      "description": "E-government, utility apps and tele-health cut friction for everyday tasks.",
+      "image": "https://images.unsplash.com/photo-1556740714-a8395b3bf30f?q=80&w=1200&auto=format&fit=crop"
+    },
+    {
+      "title": "Inclusion & Access",
+      "description": "Mobile-first access pulled millions online; affordability and literacy remain key.",
+      "image": "https://images.unsplash.com/photo-1558021212-51b6ecfa0db9?q=80&w=1200&auto=format&fit=crop"
+    },
+    {
+      "title": "Safety & Rights",
+      "description": "Digital rights advocacy responded to privacy, security and expression concerns.",
+      "image": "https://images.unsplash.com/photo-1544197150-b99a580bb7a8?q=80&w=1200&auto=format&fit=crop"
+    }
+  ]
+  },
+  "cases": {
+    "title": "Snapshots & case studies",
+    "lead": "Real examples across cities, sectors and platforms.",
+    "items": [
+      {
+        "title": "Freelance boom across second‑tier cities",
+        "tags": ["Services", "Export", "Upwork"],
+        "summary": "Low entry costs + platforms created remote earning for designers, devs and translators beyond major hubs.",
+        "image": "https://images.unsplash.com/photo-1521791136064-7986c2920216?q=80&w=1200&auto=format&fit=crop"
+      },
+      {
+        "title": "Ed‑tech for underserved learners",
+        "tags": ["Education", "Access"],
+        "summary": "Recorded lessons, WhatsApp micro‑learning and LMS pilots helped students bridge gaps during outages and closures.",
+        "image": "https://images.unsplash.com/photo-1513258496099-48168024aec0?q=80&w=1200&auto=format&fit=crop"
+      },
+      {
+        "title": "Small merchants go online",
+        "tags": ["SME", "E‑commerce"],
+        "summary": "Marketplaces and POS apps enabled payments, inventory and delivery without heavy capex.",
+        "image": "https://images.unsplash.com/photo-1520607162513-77705c0f0d4a?q=80&w=1200&auto=format&fit=crop"
+      }
+    ]
+  },
+  "quote": {
+    "text": "The internet has become the new oxygen for Pakistan's youth, breathing life into dreams and possibilities.",
+    "source": "Digital Rights Foundation"
+  },
+  "cta": {
+    "heading": "Next: where policy meets innovation",
+    "copy": "Explore how spectrum, fiber and rights frameworks can unlock the next decade of growth.",
+    "button": { "label": "See the Future →", "href": "future.html" }
+  },
+  "footer": {
+    "credits": "CM1040 Web Development — Internet in Pakistan",
+    "author": "Created by Aamir Mustafa · Goldsmiths, University of London",
+    "year": "© 2025"
+  }
+}

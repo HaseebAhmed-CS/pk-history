@@ -1,0 +1,419 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Internet in Pakistan — Impact</title>
+
+  <!-- Nunjucks -->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/nunjucks/3.2.4/nunjucks.min.js"></script>
+
+  <!-- Fonts -->
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;900&family=JetBrains+Mono:wght@500;700&display=swap" rel="stylesheet">
+
+  <style>
+    :root{
+      /* Palette */
+      --bg:#ffffff; --bg-soft:#f6faf8; --ink:#0f1720; --muted:#3b4f45; --border:#e6efe9;
+      --green:#10b981; --green-600:#069669; --green-700:#065f46; --cyan:#22eecc;
+      --shadow-1:0 2px 6px rgba(16,24,32,.06), 0 10px 28px rgba(16,24,32,.06);
+      --shadow-2:0 6px 16px rgba(16,24,32,.08), 0 22px 56px rgba(16,24,32,.12);
+
+      /* Layout */
+      --container:1180px; --r-lg:18px; --r-xl:26px;
+
+      /* Type scale */
+      --t0:clamp(.95rem,.9rem + .2vw,1rem);
+      --t1:clamp(1.1rem,1.0rem + .6vw,1.25rem);
+      --t2:clamp(1.35rem,1.1rem + 1.2vw,1.65rem);
+      --t3:clamp(1.8rem,1.4rem + 2vw,2.2rem);
+      --t4:clamp(2.4rem,1.9rem + 3vw,3.3rem);
+    }
+
+    /* Base */
+    *{box-sizing:border-box}
+    html{scroll-behavior:smooth}
+    body{
+      margin:0;background:var(--bg);color:var(--ink);
+      font-family:'Inter',system-ui,-apple-system,Segoe UI,Roboto,sans-serif;
+      line-height:1.65; -webkit-font-smoothing:antialiased; -moz-osx-font-smoothing:grayscale;
+    }
+    .container{max-width:var(--container);margin:auto;padding:0 24px}
+
+    /* Micro components */
+    .kicker{letter-spacing:.12em;text-transform:uppercase;font-weight:800;color:var(--green-700);font-size:.8rem}
+    .chip{display:inline-flex;gap:.45rem;align-items:center;padding:.36rem .7rem;background:#ecfdf5;border:1px solid #d1fae5;color:#065f46;border-radius:999px;font-weight:800;font-size:.78rem}
+
+    /* Sticky subnav */
+    .subnav{position:sticky;top:0;z-index:50;background:#ffffffcc;backdrop-filter:saturate(120%) blur(8px);border-bottom:1px solid var(--border)}
+    .subnav .inner{display:flex;gap:10px;align-items:center;justify-content:center;padding:10px}
+    .subnav a{color:#2b6757;text-decoration:none;font-weight:800;padding:.4rem .7rem;border-radius:999px;border:1px solid transparent}
+    .subnav a:hover{border-color:#c8eee0;background:#f3fbf7}
+
+    /* Loader */
+    .loading{display:flex;min-height:50vh;align-items:center;justify-content:center;flex-direction:column;gap:12px}
+    .spinner{width:46px;height:46px;border:3px solid rgba(16,24,32,.08);border-top:3px solid var(--green);border-radius:50%;animation:spin 1s linear infinite}
+    @keyframes spin{to{transform:rotate(360deg)}}
+    .loading p{color:#4b6359}
+
+    /* Hero */
+    header.hero{position:relative;overflow:hidden;isolation:isolate;background:var(--bg-soft);border-bottom:1px solid var(--border)}
+    .flag-bg{position:absolute;inset:0;z-index:-2;opacity:.12;background:url('https://upload.wikimedia.org/wikipedia/commons/3/32/Flag_of_Pakistan.svg') center/cover no-repeat}
+    .flag-veil{position:absolute;inset:0;z-index:-1;background:linear-gradient(180deg,rgba(255,255,255,.92),rgba(255,255,255,.98))}
+    .hero-inner{padding:64px 0;text-align:center}
+    .hero h1{
+      margin:.6rem 0 0; font-size:var(--t4); font-weight:900; letter-spacing:-.02em;
+      background:linear-gradient(135deg,var(--green),var(--cyan)); -webkit-background-clip:text;background-clip:text;-webkit-text-fill-color:transparent;
+    }
+    .hero p{max-width:880px;margin:12px auto 0;color:#3b5149;font-size:var(--t1)}
+
+    /* Section shell */
+    .section{padding:74px 0}
+    .section-header{text-align:center;margin-bottom:26px}
+    .section-title{font-size:var(--t3);margin:.15rem 0}
+    .section-lead{max-width:840px;margin:8px auto 0;color:#3c4e46;font-size:var(--t1)}
+    .divider{
+      width:100%;max-width:160px;height:4px;margin:14px auto 0;border-radius:999px;
+      background:linear-gradient(90deg,transparent,var(--green) 22%,var(--cyan) 78%,transparent)
+    }
+
+    /* Metrics */
+    .metrics{display:grid;grid-template-columns:repeat(4,1fr);gap:16px;margin-top:20px}
+    .metric{
+      text-align:center;background:#fff;border:1px solid var(--border);border-radius:16px;padding:18px;
+      box-shadow:var(--shadow-1)
+    }
+    .metric .num{font-family:'JetBrains Mono',monospace;font-weight:900;color:var(--green-700);font-size:1.45rem}
+    .metric .lab{color:#3a4e46;text-transform:uppercase;font-weight:900;letter-spacing:.12em;font-size:.74rem}
+
+   /* ====== Pillars (replace this whole block) ====== */
+.grid{
+  /* simpler, responsive grid */
+  display:grid;
+  grid-template-columns:repeat(auto-fit, minmax(280px, 1fr));
+  gap:18px;
+}
+
+.card{
+  background:#fff;
+  border:1px solid var(--border);
+  border-radius:var(--r-xl);
+  box-shadow:var(--shadow-1);
+  transition:transform .26s ease, box-shadow .26s ease, border-color .26s ease;
+  display:flex;              /* keep image + text stacked */
+  flex-direction:column;
+  overflow:hidden;
+}
+
+.card:hover{transform:translateY(-6px);box-shadow:var(--shadow-2);border-color:#cbeee2}
+
+.thumb{
+  position:relative;
+  width:100%;
+  aspect-ratio:16/9;         /* consistent height while loading */
+  background:linear-gradient(180deg,#f0fdf4,#e6f4f1); /* pleasant placeholder */
+  overflow:hidden;
+  border-bottom:1px solid var(--border);
+}
+
+.thumb img{
+  width:100%;height:100%;object-fit:cover;display:block;
+  transform:scale(1.02);
+  transition:transform .45s cubic-bezier(.2,.8,.2,1);
+}
+.card:hover .thumb img{transform:scale(1.06)}
+
+.card-content{padding:16px}
+.card-content h3{margin:.15rem 0 .4rem;color:#0f4f41;font-weight:900}
+.card-content p{margin:0;color:#3a5147}
+
+
+    /* Cases */
+    .case{
+      grid-column:span 6; display:grid;grid-template-columns:1.1fr .9fr;gap:16px;background:#fff;border:1px solid var(--border);
+      border-radius:var(--r-xl); padding:16px; box-shadow:var(--shadow-1);
+      transition:transform .26s ease, box-shadow .26s ease, border-color .26s ease
+    }
+    .case:hover{transform:translateY(-4px);box-shadow:var(--shadow-2);border-color:#cbeee2}
+    .badges{margin:.2rem 0 .35rem}
+    .badge{display:inline-block;background:#ecfdf5;border:1px solid #d1fae5;color:#065f46;border-radius:999px;padding:.26rem .58rem;font-weight:900;font-size:.72rem;margin-right:.35rem}
+    .image{aspect-ratio:4/3;border-radius:14px;overflow:hidden;border:1px solid var(--border)}
+    .image img{width:100%;height:100%;object-fit:cover;display:block;transform:scale(1.02);transition:transform .45s cubic-bezier(.2,.8,.2,1)}
+    .case:hover .image img{transform:scale(1.06)}
+    .case h4{color:#0f4f41;margin:.1rem 0 .35rem;font-weight:900}
+    .case p{color:#3a5147}
+
+    /* Quote */
+    .quote{background:linear-gradient(180deg,#ffffff,#f6fbf9);border:1px solid var(--border);border-radius:var(--r-xl);box-shadow:var(--shadow-1);
+      padding:28px;text-align:center}
+    .quote blockquote{font-size:var(--t2);color:#28463b;margin:0}
+    .quote cite{display:block;margin-top:8px;color:#0f4f41;font-weight:900}
+
+    /* CTA */
+    .cta{text-align:center;background:#fff;border:1px solid var(--border);border-radius:var(--r-xl);box-shadow:var(--shadow-1);padding:28px}
+    .cta a{display:inline-block;margin-top:10px;padding:.85rem 1.15rem;border-radius:999px;background:linear-gradient(180deg,var(--green),var(--green-600));color:#fff;text-decoration:none;font-weight:900;box-shadow:var(--shadow-1)}
+    .cta a:hover{transform:translateY(-2px);box-shadow:var(--shadow-2)}
+
+    /* Footer */
+    footer{border-top:1px solid var(--border);background:var(--bg-soft);margin-top:78px}
+    .foot{padding:26px 0;text-align:center;color:#3c4e47}
+    .foot strong{color:var(--green-700)}
+
+    /* Reveal */
+    .reveal{opacity:0;transform:translateY(12px)}
+    .reveal.show{opacity:1;transform:translateY(0);transition:opacity .55s ease, transform .55s cubic-bezier(.2,.8,.2,1)}
+
+    /* Back to top */
+    .to-top{position:fixed;right:16px;bottom:16px;z-index:60;transform:translateY(18px);opacity:0;transition:opacity .25s, transform .25s}
+    .to-top button{border:none;border-radius:999px;background:linear-gradient(180deg,var(--green),var(--green-600));color:#fff;padding:.7rem .9rem;box-shadow:var(--shadow-2);cursor:pointer;font-weight:900}
+    .to-top.show{opacity:1;transform:translateY(0)}
+
+    /* Responsive */
+    @media (max-width:1100px){ .card{grid-column:span 6} .case{grid-column:span 12} }
+    @media (max-width:740px){
+      .metrics{grid-template-columns:repeat(2,1fr)}
+      .card{grid-column:span 12}
+      .case{grid-template-columns:1fr}
+      .hero-inner{padding:52px 0}
+    }
+
+    @media (prefers-reduced-motion:reduce){
+      *{animation-duration:.01ms!important;animation-iteration-count:1!important;transition-duration:.01ms!important}
+    }
+  </style>
+</head>
+<body>
+  <!-- Sticky sub‑nav -->
+  <nav class="subnav" aria-label="Section navigation">
+    <div class="inner">
+      <a href="#metrics">Numbers</a>
+      <a href="#pillars">Pillars</a>
+      <a href="#cases">Case Studies</a>
+      <a href="#quote">Quote</a>
+    </div>
+  </nav>
+
+  <!-- Loader -->
+  <div id="loading" class="loading" role="status" aria-live="polite">
+    <div class="spinner" aria-hidden="true"></div>
+    <p>Loading how the internet changed life in Pakistan…</p>
+  </div>
+
+  <!-- Render target -->
+  <div id="impact-content" hidden></div>
+
+  <!-- Template -->
+  <script type="text/template" id="impact-template">
+    <header class="hero">
+      <div class="flag-bg" aria-hidden="true"></div>
+      <div class="flag-veil" aria-hidden="true"></div>
+      <div class="container hero-inner">
+        <span class="chip">{{ hero.kicker }}</span>
+        <h1>{{ hero.title }}</h1>
+        {% if hero.subhead %}<p>{{ hero.subhead }}</p>{% endif %}
+        <div class="divider" aria-hidden="true"></div>
+      </div>
+    </header>
+
+    <main class="container">
+      <!-- Metrics -->
+      <section class="section" id="metrics">
+        <div class="section-header">
+          <span class="kicker">By the numbers</span>
+          <h2 class="section-title">{{ metrics.title }}</h2>
+          {% if metrics.lead %}<p class="section-lead">{{ metrics.lead }}</p>{% endif %}
+        </div>
+        <div class="metrics">
+          {% for m in metrics.items %}
+            <div class="metric reveal" aria-label="{{ m.label }}">
+              <div class="num">{{ m.value }}</div>
+              <div class="lab">{{ m.label }}</div>
+            </div>
+          {% endfor %}
+        </div>
+      </section>
+
+<!-- Pillars -->
+<section class="section" id="pillars">
+  <div class="section-header">
+    <span class="kicker">Impact pillars</span>
+    <h2 class="section-title">{{ pillars.title }}</h2>
+    {% if pillars.lead %}<p class="section-lead">{{ pillars.lead }}</p>{% endif %}
+  </div>
+
+  <div class="grid">
+    {% for p in pillars.items %}
+      <article class="card reveal">
+        {% if p.image %}
+        <figure class="thumb">
+          <img src="{{ p.image }}" alt="{{ p.title }}" loading="lazy" />
+        </figure>
+        {% endif %}
+        <div class="card-content">
+          <h3>{{ p.title }}</h3>
+          <p>{{ p.description }}</p>
+        </div>
+      </article>
+    {% endfor %}
+  </div>
+</section>
+
+
+      <!-- Case studies -->
+      <section class="section" id="cases">
+        <div class="section-header">
+          <span class="kicker">On the ground</span>
+          <h2 class="section-title">{{ cases.title }}</h2>
+          {% if cases.lead %}<p class="section-lead">{{ cases.lead }}</p>{% endif %}
+        </div>
+
+        <div class="grid">
+          {% for c in cases.items %}
+            <article class="case reveal">
+              <div>
+                <h4 style="margin:0 .0 .25rem 0">{{ c.title }}</h4>
+                <div class="badges">
+                  {% for b in c.tags %}<span class="badge">{{ b }}</span>{% endfor %}
+                </div>
+                <p style="margin-top:.35rem">{{ c.summary }}</p>
+              </div>
+              {% if c.image %}
+              <figure class="image"><img src="{{ c.image }}" alt="{{ c.title }}" loading="lazy" /></figure>
+              {% endif %}
+            </article>
+          {% endfor %}
+        </div>
+      </section>
+
+      <!-- Quote -->
+      <section class="section" id="quote">
+        <div class="quote reveal">
+          <blockquote>“{{ quote.text }}”</blockquote>
+          <cite>— {{ quote.source }}</cite>
+        </div>
+      </section>
+
+      <!-- CTA -->
+      <section class="section">
+        <div class="cta reveal">
+          <h3 style="margin:.1rem 0 .35rem 0">{{ cta.heading }}</h3>
+          <p style="color:#3a5147;margin:0">{{ cta.copy }}</p>
+          {% if cta.button %}<a href="{{ cta.button.href }}">{{ cta.button.label }}</a>{% endif %}
+        </div>
+      </section>
+    </main>
+
+    <footer>
+      <div class="container foot">
+        <div><strong>{{ footer.credits }}</strong></div>
+        <div>{{ footer.author }}</div>
+        <div style="color:#5a6b64;font-size:.9rem">{{ footer.year }}</div>
+      </div>
+    </footer>
+  </script>
+
+  <!-- Back to top -->
+  <div class="to-top" id="toTop" aria-hidden="true">
+    <button type="button" aria-label="Back to top" onclick="window.scrollTo({top:0,behavior:'smooth'})">↑ Top</button>
+  </div>
+
+  <script>
+    nunjucks.configure({ autoescape: true });
+
+    async function loadImpact(){
+      const loading = document.getElementById('loading');
+      const target  = document.getElementById('impact-content');
+      const tpl     = document.getElementById('impact-template').innerHTML;
+
+      // Fallback (if fetch fails)
+      const fallback = {
+        hero:{ kicker:"Impact", title:"How the Internet Changed Life in Pakistan", subhead:"From livelihoods to learning, the web reshaped work, culture and civic life." },
+        metrics:{ title:"Digital footprint at a glance", lead:"Adoption and usage continue to scale nationwide.",
+          items:[
+            { value:"130M+", label:"Internet Users" },
+            { value:"#4",   label:"Global Freelancing Rank" },
+            { value:"85%",  label:"Mobile Internet Share" },
+            { value:"40%",  label:"Urban Fiber Coverage" }
+          ]
+        },
+        pillars:{ title:"Four domains of impact", lead:"Economy, education, culture and governance saw the largest shifts.",
+          items:[
+            { title:"Economy & Work", description:"E‑commerce, gig income and export services created new paths into the global market.", image:"https://images.unsplash.com/photo-1556741533-f6acd6477e9e?q=80&w=1200&auto=format&fit=crop" },
+            { title:"Education & Skills", description:"LMS platforms, MOOCs and blended models broadened access to learning.", image:"https://images.unsplash.com/photo-1584697964190-541f73b8e3f5?q=80&w=1200&auto=format&fit=crop" },
+            { title:"Culture & Community", description:"Social platforms amplified local voices, music and film; diaspora links deepened.", image:"https://images.unsplash.com/photo-1512428559087-560fa5ceab42?q=80&w=1200&auto=format&fit=crop" },
+            { title:"Civic Life & Services", description:"E‑government, utility apps and tele‑health cut friction for everyday tasks.", image:"https://images.unsplash.com/photo-1556740714-a8395b3bf30f?q=80&w=1200&auto=format&fit=crop" },
+            { title:"Inclusion & Access", description:"Mobile‑first access pulled millions online; affordability and literacy remain key.", image:"https://images.unsplash.com/photo-1558021212-51b6ecfa0db9?q=80&w=1200&auto=format&fit=crop" },
+            { title:"Safety & Rights", description:"Digital rights advocacy responded to privacy, security and expression concerns.", image:"https://images.unsplash.com/photo-1544197150-b99a580bb7a8?q=80&w=1200&auto=format&fit=crop" }
+          ]
+        },
+        cases:{ title:"Snapshots & case studies", lead:"Real examples across cities, sectors and platforms.",
+          items:[
+            { title:"Freelance boom across second‑tier cities", tags:["Services","Export","Upwork"], summary:"Low entry costs + platforms created remote earning for designers, devs and translators beyond major hubs.", image:"https://images.unsplash.com/photo-1521791136064-7986c2920216?q=80&w=1200&auto=format&fit=crop" },
+            { title:"Ed‑tech for underserved learners", tags:["Education","Access"], summary:"Recorded lessons, WhatsApp micro‑learning and LMS pilots helped students bridge gaps during outages and closures.", image:"https://images.unsplash.com/photo-1513258496099-48168024aec0?q=80&w=1200&auto=format&fit=crop" },
+            { title:"Small merchants go online", tags:["SME","E‑commerce"], summary:"Marketplaces and POS apps enabled payments, inventory and delivery without heavy capex.", image:"https://images.unsplash.com/photo-1520607162513-77705c0f0d4a?q=80&w=1200&auto=format&fit=crop" }
+          ]
+        },
+        quote:{ text:"The internet has become the new oxygen for Pakistan's youth, breathing life into dreams and possibilities.", source:"Digital Rights Foundation" },
+        cta:{ heading:"Next: where policy meets innovation", copy:"Explore how spectrum, fiber and rights frameworks can unlock the next decade of growth.", button:{ label:"See the Future →", href:"future.html" } },
+        footer:{ credits:"CM1040 Web Development — Internet in Pakistan", author:"Created by Aamir Mustafa · Goldsmiths, University of London", year:"© 2025" }
+      };
+
+      try{
+        const resp = await fetch('data/impact.json', { cache:'no-store' });
+        const data = resp.ok ? await resp.json() : fallback;
+
+        const html = nunjucks.renderString(tpl, data || fallback);
+        target.innerHTML = html;
+
+        loading.remove();         // nuke loader, always
+        target.hidden = false;
+
+        applyReveal();
+        initTopButton();
+      }catch(e){
+        const html = nunjucks.renderString(tpl, fallback);
+        target.innerHTML = html;
+
+        loading.remove();
+        target.hidden = false;
+
+        applyReveal();
+        initTopButton();
+        console.warn('impact.json failed, using fallback:', e);
+      }
+    }
+
+    function applyReveal(){
+      const els = document.querySelectorAll('.reveal, .metric, .card, .case, .quote, .cta');
+      const io  = new IntersectionObserver((entries)=>{
+        entries.forEach(en=>{
+          if(en.isIntersecting){
+            en.target.classList.add('show');
+            io.unobserve(en.target);
+          }
+        });
+      }, { threshold:.12, rootMargin:'0px 0px -80px 0px' });
+      els.forEach(el=>io.observe(el));
+    }
+
+    function initTopButton(){
+      const btn = document.getElementById('toTop');
+      const toggle = () => {
+        if (window.scrollY > 420) { btn.classList.add('show'); btn.setAttribute('aria-hidden','false'); }
+        else { btn.classList.remove('show'); btn.setAttribute('aria-hidden','true'); }
+      };
+      addEventListener('scroll', toggle, { passive:true }); toggle();
+    }
+
+    document.addEventListener('DOMContentLoaded', loadImpact);
+
+    // Smooth internal links
+    document.addEventListener('click', (e)=>{
+      const a = e.target.closest("a[href^='#']");
+      if(!a) return;
+      e.preventDefault();
+      document.querySelector(a.getAttribute('href'))?.scrollIntoView({ behavior:'smooth', block:'start' });
+    });
+  </script>
+</body>
+</html>

@@ -1,0 +1,70 @@
+{
+    "title": "Internet Evolution in Pakistan (1995–2024)",
+    "introduction": [
+      "The evolution of the internet in Pakistan is a story of transformation — from elite access in a few universities to nationwide 4G and 5G networks empowering millions.",
+      "This timeline showcases the major technical, social, and policy-driven milestones that brought Pakistan into the digital age."
+    ],
+    "timeline": [
+      {
+        "year": "1995",
+        "title": "First Public Internet Access",
+        "description": "Digicom launches Pakistan's first public dial-up internet service in Karachi, with speeds under 56 kbps."
+      },
+      {
+        "year": "1998",
+        "title": "PTCL Launches National Dial-Up",
+        "description": "Pakistan Telecommunication Company Limited (PTCL) expands dial-up access to major cities, making home internet possible."
+      },
+      {
+        "year": "2001",
+        "title": "DSL Broadband Introduced",
+        "description": "PTCL introduces DSL broadband with packages starting from 128 Kbps to 512 Kbps, revolutionizing connectivity for offices and tech users."
+      },
+      {
+        "year": "2006",
+        "title": "Wi-Tribe and Wateen Wireless",
+        "description": "Wireless ISPs like Wi-Tribe and Wateen enter the market with WiMAX and CDMA solutions, offering prepaid internet for students and homes."
+      },
+      {
+        "year": "2008",
+        "title": "YouTube Culture Begins",
+        "description": "The rise of YouTube and digital content consumption influences youth culture, education, and entertainment habits."
+      },
+      {
+        "year": "2014",
+        "title": "3G and 4G Spectrum Auction",
+        "description": "PTA conducts Pakistan’s first 3G/4G auction. Zong, Telenor, Mobilink, and Ufone deploy high-speed mobile broadband."
+      },
+      {
+        "year": "2016",
+        "title": "Mobile-First Generation",
+        "description": "Smartphone adoption crosses 50 million. Apps like WhatsApp, Facebook, and Snapchat become daily tools."
+      },
+      {
+        "year": "2020",
+        "title": "COVID-19 and Digital Shift",
+        "description": "Pandemic forces online education, remote work, and digital transformation. Platforms like Zoom and Google Meet rise sharply."
+      },
+      {
+        "year": "2021",
+        "title": "Fiber Internet Expansion",
+        "description": "ISPs like StormFiber and Nayatel offer gigabit speeds in urban areas. Video streaming and gaming take off."
+      },
+      {
+        "year": "2023",
+        "title": "5G Pilot Trials",
+        "description": "5G pilot tests begin in Islamabad and Lahore, with demo speeds crossing 1 Gbps. The future of smart cities begins."
+      },
+      {
+        "year": "2024",
+        "title": "National Broadband Policy",
+        "description": "Government introduces a digital inclusion policy to connect 95% of the population by 2030, with a focus on rural access and youth skills."
+      }
+    ],
+    "footer": {
+      "credits": "Timeline compiled for CM1040 Web Development",
+      "author": "Aamir Mustafa",
+      "year": 2025
+    }
+  }
+  

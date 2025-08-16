@@ -1,0 +1,65 @@
+{
+    "hero": {
+      "headline": "Connecting Pakistan: From the First Dial-Up to the Age of 5G",
+      "backgroundImage": "assets/images/hero-pakistan-internet.jpg",
+      "overlay": true
+    },
+    "welcome": {
+      "title": "Welcome to Your Digital Journey",
+      "paragraphs": [
+        "Pakistan's internet story is one of resilience, growth, and transformation. From the first public dial-up connections in the 90s to today's blazing fast 5G trials, it's been a revolutionary ride.",
+        "This website offers a deep look at how internet connectivity has reshaped Pakistan’s education, economy, culture, and digital identity.",
+        "We highlight historic milestones, analyze current usage trends, and look ahead to future possibilities in connectivity and technology."
+      ]
+    },
+    "highlights": [
+      {
+        "icon": "",
+        "title": "The First Connections",
+        "year": "1995–2001",
+        "detail": "Early ISPs like BrainNet and Digicom introduced dial-up services, mostly accessible to institutions and a handful of tech-savvy citizens. Internet cafes began appearing in major cities like Karachi and Lahore."
+      },
+      {
+        "icon": "",
+        "title": "Broadband Revolution",
+        "year": "2002–2010",
+        "detail": "PTCL launched DSL, while Wi-Tribe and Wateen brought wireless options. Speeds improved significantly, and the web became accessible to more middle-income homes, students, and small businesses."
+      },
+      {
+        "icon": "",
+        "title": "3G, 4G & Beyond",
+        "year": "2014–Present",
+        "detail": "After the 2014 spectrum auction, Pakistan leapt into the mobile broadband era. 4G adoption exploded — especially in remote regions — bridging digital divides, with millions accessing the web from smartphones."
+      },
+      {
+        "icon": "",
+        "title": "Rise of the Digital Economy",
+        "year": "2018–Now",
+        "detail": "With more users online, Pakistan became a top global freelancer hub. E-commerce platforms, mobile wallets, EdTech, and YouTubers have all flourished, reshaping how Pakistanis work, learn, and earn."
+      }
+    ],
+    "facts": {
+      "title": "Did You Know?",
+      "list": [
+        "Pakistan has over 125 million internet users as of 2024.",
+        "The country ranks among the top 5 nations for freelance earnings.",
+        "Rural mobile broadband coverage has expanded by 50% since 2018.",
+        "YouTube is Pakistan’s most visited website after Google.",
+        "StormFiber and Nayatel offer up to 1 Gbps speeds in major cities."
+      ]
+    },
+    "cta": {
+      "headline": "Why This Project Matters",
+      "points": [
+        "The internet isn’t just technology — it's an equalizer. It connects people to education, healthcare, and economic opportunities.",
+        "In Pakistan, the web is helping students attend virtual classes, freelancers earn global income, and communities access vital services.",
+        "This website documents the history, celebrates the present, and imagines the future of Pakistan’s digital growth."
+      ]
+    },
+    "footer": {
+      "credits": "Internet in Pakistan Project",
+      "author": "Created by Aamir Mustafa",
+      "year": 2025
+    }
+  }
+  
